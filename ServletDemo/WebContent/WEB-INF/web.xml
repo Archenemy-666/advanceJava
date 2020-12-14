@@ -1,0 +1,12 @@
+<web-app>
+	<servlet>
+		<servlet-name>HelloServlet</servlet-name>
+		<servlet-class>com.ts.web.HelloServlet</servlet-class>
+	</servlet>
+	
+	
+	<servlet-mapping>
+		<servlet-name>HelloServlet</servlet-name>
+		<url-pattern>/HelloServlet</url-pattern>
+	</servlet-mapping>
+</web-app>
