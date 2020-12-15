@@ -3,6 +3,7 @@ package com.ts.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,15 +19,17 @@ public class LoginServlet extends HttpServlet {
 		String loginId = request.getParameter("loginId");
 		String password = request.getParameter("password");
 		
+		// prepare output page
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
 		if(loginId.equalsIgnoreCase("hr") && password.equalsIgnoreCase("hr")) {
-			out.print("<html>");
-			out.print("<body bgcolor = black text = white>");
-			out.print("<h1> Welcom to HR page </h1>");
-			out.print("</body>");
-			out.print("</html>");
+			
+			// navigate to other servlet 
+			
+			RequestDispatcher rd = request.getRequestDispatcher("HrHomePage");
+			rd.forward(request, response);
+
 			
 		}
 		else {
@@ -35,6 +38,8 @@ public class LoginServlet extends HttpServlet {
 			out.print("<h1> wrong creds !! </h1>");
 			out.print("</body>");
 			out.print("</html>");
+			RequestDispatcher rd = request.getRequestDispatcher("login.html");
+			rd.include(request, response);
 			
 		}
 		
