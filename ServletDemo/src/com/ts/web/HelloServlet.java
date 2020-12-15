@@ -1,6 +1,7 @@
 package com.ts.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
@@ -13,9 +14,17 @@ public class HelloServlet extends GenericServlet {
 		System.out.println("inside.. init.. method");
 	}
 	@Override
-	public void service(ServletRequest arg0, ServletResponse arg1) throws ServletException, IOException {
+	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.print("<html>");
+		out.print("<body bgcolor = black text = white>");
+		out.print("<h1> <center> welcome to hello servlet </center> </h1>");
+		out.print("</body>");
+		out.print("</html>");
 		System.out.println("Inside Service... called ...");
+		
 		
 	}
 	public void destroy() {

@@ -9,4 +9,17 @@
 		<servlet-name>HelloServlet</servlet-name>
 		<url-pattern>/HelloServlet</url-pattern>
 	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>HiServlet</servlet-name>
+		<servlet-class>com.ts.web.HiServlet</servlet-class>
+	</servlet>
+	
+	
+	<servlet-mapping>
+		<servlet-name>HiServlet</servlet-name>
+		<url-pattern>/HiServlet</url-pattern>
+	</servlet-mapping>
+	
+	
 </web-app>
