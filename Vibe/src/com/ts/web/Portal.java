@@ -10,22 +10,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class HrHomePage
+ * Servlet implementation class Portal
  */
-@WebServlet("/HrHomePage")
-public class HrHomePage extends HttpServlet {
+@WebServlet("/Portal")
+public class Portal extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.print("<html>");
-		out.print("<body bgcolor = black text = white>");
+		out.print("<body bgcolor = black text = white align = center>");
+		out.print("<header><h1> Portal </h1></header>");
 		out.print("<h1> Welcome to HR page </h1>");
 		out.print("</body>");
 		out.print("</html>");
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		doGet(request, response);
 	}
 
