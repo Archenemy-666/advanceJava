@@ -25,9 +25,9 @@ public class DisplayEmployee extends HttpServlet {
 	Employee employee = employeeDAO.getEmployee(empId);
 	if(employee != null) {
 		out.print("<html>");
-		out.print("<bgcolor=black text=white>");
+		out.print("<bgcolor= black text= white >");
 		out.print("<h3> employee data  </h3>");
-		out.print("<table>");
+		out.print("<table border = 2 >");
 		out.print("<tr>");
 		out.print("<th>empId</th>");
 		out.print("<th>empName</th>");

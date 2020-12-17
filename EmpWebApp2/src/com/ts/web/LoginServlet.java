@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ts.dao.EmployeeDAO;
 import com.ts.dto.Employee;
@@ -18,9 +19,14 @@ import com.ts.dto.Employee;
 @WebServlet("/LoginServlet") //annotation
 public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+
+		
 		//Reading values from Client
 		String loginId = request.getParameter("loginId");
 		String password = request.getParameter("password");
+		
+
 		//preparing output page
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
@@ -32,6 +38,10 @@ public class LoginServlet extends HttpServlet {
 			EmployeeDAO employeeDAO = new EmployeeDAO();
 			Employee employee = employeeDAO.getEmployee(loginId, password);
 			if(employee != null){
+				HttpSession session = request.getSession();
+				session.setAttribute("loginId",loginId);
+				session.setAttribute("password", password);
+				
 				RequestDispatcher rd = request.getRequestDispatcher("EmpHomePage");
 				rd.forward(request, response);
 			} else {

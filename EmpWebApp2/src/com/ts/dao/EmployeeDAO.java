@@ -144,4 +144,38 @@ public class EmployeeDAO {
 		}
 		return null;
 	}
+	public Employee getEmployee(String loginId) {
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		String SELECT = "select * from employee where loginId = ?";
+		try {
+			con = MyConnection.getConnection();
+			pst = con.prepareStatement(SELECT);
+			pst.setString(1, loginId);
+			
+			rs = pst.executeQuery();
+			if(rs.next()){
+				Employee employee = new Employee();
+				employee.setEmpId(rs.getInt(1));
+				employee.setEmpName(rs.getString(2));
+				employee.setSalary(rs.getDouble(3));
+				employee.setLoginId(rs.getString(4));
+				employee.setPassword(rs.getString(5)); 
+				return employee;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally{
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+
 }

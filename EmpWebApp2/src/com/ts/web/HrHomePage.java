@@ -20,7 +20,7 @@ public class HrHomePage extends HttpServlet {
 		String loginId = request.getParameter("loginId");
 		
 		out.print("<html>");
-		out.print("<body bgcolor=black text=white>");
+		out.print("<body bgcolor= black  text= white>");
 		out.print("<h3>Hi : "+loginId+"<center>Welcome to HR Home Page</center></h3>");
 		out.print("<h3><center><a href='FindEmployee.html'>Display Employee By Id</a></center></h3>");
 		out.print("<h3><center><a href = 'ListOfEmployees'>Display All Employees</a></center></h3>");

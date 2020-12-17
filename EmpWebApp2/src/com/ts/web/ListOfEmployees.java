@@ -29,34 +29,13 @@ public class ListOfEmployees extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("HrHomePage");
 		rd.include(request, response);
 		out.print("<h1> employee data  </h1>");
-		for(Employee emp : employeeList) {
-			out.print("<html>");
-			out.print("<body bgcolor=black text=white>");
-			out.print("<table>");
-			out.print("<tr>");
-			out.print("<th>empId</th>");
-			out.print("<th>empName</th>");
-			out.print("<th>salary</th>");
-			out.print("<th>loginId</th>");
-			out.print("<th>password</th>");
-			out.print("</tr>");
-			out.print("<tr>");
-			out.print("<th>"+ emp.getEmpId()+"</th>");
-			out.print("<th>"+ emp.getEmpName()+"</th>");
-			out.print("<th>"+ emp.getSalary()+"</th>");
-			out.print("<th>"+ emp.getLoginId()+"</th>");
-			out.print("<th>"+ emp.getPassword()+"</th>");
-			out.print("</tr>");
-			out.print("</table>");
-			out.print("</body>");
-			out.print("</html>");
+		
 
 
 		
 		}
 
 		
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

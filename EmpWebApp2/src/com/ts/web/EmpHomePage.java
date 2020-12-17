@@ -22,6 +22,7 @@ public class EmpHomePage extends HttpServlet {
 		out.print("<html>");
 		out.print("<body bgcolor=black text=white>");
 		out.print("<h3>Hi : "+loginId+"<center>Welcome to Employee Home Page</center></h3>");
+		out.print("<a href = EmployeeProfile> Display Profile </a> ");
 		out.print("</body>");
 		out.print("</html>");
 	}
