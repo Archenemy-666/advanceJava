@@ -18,9 +18,9 @@ public class Portal extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.print("<html>");
-		out.print("<body bgcolor = black text = white align = center>");
+		out.print("<body bgcolor = black text = white align = center vlink = grey>");
 		out.print("<header><h1> Portal </h1></header>");
-		out.print("<h1> Welcome to HR page </h1>");
+		out.print("<h1> Welcome to Admin page </h1>");
 		out.print("</body>");
 		out.print("</html>");
 		

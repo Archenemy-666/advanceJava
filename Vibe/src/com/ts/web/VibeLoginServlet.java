@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ts.dao.VibeDAO;
+import com.ts.dto.Admin ;
+
 @WebServlet("/VibeLoginServlet")
 public class VibeLoginServlet extends HttpServlet {
 
@@ -22,7 +25,9 @@ public class VibeLoginServlet extends HttpServlet {
 		// prepare output page
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		if(loginId.equalsIgnoreCase("sid") && password.equalsIgnoreCase("abc")) {
+		VibeDAO vibeDAO = new VibeDAO();
+		Admin admin = vibeDAO.getAdmin(loginId, password);
+		if(admin != null) {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("Portal");
 			rd.forward(request, response);
