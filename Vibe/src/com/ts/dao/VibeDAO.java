@@ -16,7 +16,7 @@ public class VibeDAO {
 		Connection con = null;
 		PreparedStatement pst = null;
 		ResultSet rs = null;
-		String SELECT = "select * from employee where loginId = ? and password = ?";
+		String SELECT = "select * from adminList where loginId = ? and password = ?";
 		try {
 			con = VibeConnection.getConnection();
 			pst = con.prepareStatement(SELECT);
@@ -38,7 +38,10 @@ public class VibeDAO {
 		}
 		finally{
 			try {
-				con.close();
+				if(con != null) {
+					con.close();
+				}
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
