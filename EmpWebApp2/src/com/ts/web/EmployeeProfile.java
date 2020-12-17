@@ -34,29 +34,12 @@ public class EmployeeProfile extends HttpServlet {
 		out.print("<h1> employee data  </h1>");
 		Employee employee = employeeDAO.getEmployee(loginId);
 		if(employee != null) {
-			out.print("<html>");
-			out.print("<bgcolor= black text= white >");
-			out.print("<h3> employee data  </h3>");
-			out.print("<table border = 2 >");
-			out.print("<tr>");
-			out.print("<th>empId</th>");
-			out.print("<th>empName</th>");
-			out.print("<th>salary</th>");
-			out.print("<th>loginId</th>");
-			out.print("<th>password</th>");
-			out.print("</tr>");
-			out.print("<tr>");
-			out.print("<th>"+employee.getEmpId()+"</th>");
-			out.print("<th>"+employee.getEmpName()+"</th>");
-			out.print("<th>"+employee.getSalary()+"</th>");
-			out.print("<th>"+employee.getLoginId()+"</th>");
-			out.print("<th>"+employee.getPassword()+"</th>");
-			out.print("</tr>");
-			out.print("</table>");
-			out.print("</body>");
-			out.print("</html>");
-			RequestDispatcher rd = request.getRequestDispatcher("EmpHomePage");
+			request.setAttribute("employee", employee);
+			RequestDispatcher rd = request.getRequestDispatcher("EmployeeProfile.jsp");
 			rd.include(request, response);
+			
+			//RequestDispatcher rd2 = request.getRequestDispatcher("EmpHomePage");
+			//rd2.include(request, response);
 	}
  }
 

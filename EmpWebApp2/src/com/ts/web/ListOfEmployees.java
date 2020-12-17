@@ -26,12 +26,15 @@ public class ListOfEmployees extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		EmployeeDAO employeeDAO = new EmployeeDAO();
 		List<Employee> employeeList = employeeDAO.getEmployees();
-		RequestDispatcher rd = request.getRequestDispatcher("HrHomePage");
+		RequestDispatcher rd = request.getRequestDispatcher("HrHomePage.jsp");
 		rd.include(request, response);
 		out.print("<h1> employee data  </h1>");
-		
-
-
+		for(Employee employee : employeeList) {
+			request.setAttribute("employee", employee);
+			RequestDispatcher rd1 = request.getRequestDispatcher("ListOfEmployees.jsp");
+			rd1.include(request, response);
+			
+		}
 		
 		}
 

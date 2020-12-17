@@ -19,29 +19,27 @@ import com.ts.dto.Employee;
 @WebServlet("/LoginServlet") //annotation
 public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-
-		
 		//Reading values from Client
 		String loginId = request.getParameter("loginId");
 		String password = request.getParameter("password");
 		
-
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("loginId",loginId);
+		session.setAttribute("password", password);
+		
+	
 		//preparing output page
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		if(loginId.equalsIgnoreCase("HR")&&password.equalsIgnoreCase("HR")){
 			//navigate to other servlet
-			RequestDispatcher rd = request.getRequestDispatcher("HrHomePage");
+			RequestDispatcher rd = request.getRequestDispatcher("HrHomePage.jsp");
 			rd.forward(request, response);
 		} else {
 			EmployeeDAO employeeDAO = new EmployeeDAO();
 			Employee employee = employeeDAO.getEmployee(loginId, password);
 			if(employee != null){
-				HttpSession session = request.getSession();
-				session.setAttribute("loginId",loginId);
-				session.setAttribute("password", password);
-				
 				RequestDispatcher rd = request.getRequestDispatcher("EmpHomePage");
 				rd.forward(request, response);
 			} else {
