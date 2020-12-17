@@ -76,7 +76,7 @@ public class EmployeeDAO {
 		}
 		return 0;
 	}
-	public Employee getEmployee(String empId) {
+	public Employee getEmployee(int empId) {
 		Connection con = null;
 		PreparedStatement pst = null;
 		ResultSet rs = null;
@@ -84,7 +84,7 @@ public class EmployeeDAO {
 		try {
 			con = MyConnection.getConnection();
 			pst = con.prepareStatement(SELECT);
-			pst.setString(1, empId);
+			pst.setInt(1, empId);
 			rs = pst.executeQuery();
 			if(rs.next()){
 				Employee employee = new Employee();

@@ -18,7 +18,7 @@ import com.ts.dto.Employee;
 public class DisplayEmployee extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	String empId = request.getParameter("empId");
+	int empId = Integer.parseInt(request.getParameter("empId"));
 	response.setContentType("text/html");
 	PrintWriter out = response.getWriter();
 	EmployeeDAO employeeDAO = new EmployeeDAO();
