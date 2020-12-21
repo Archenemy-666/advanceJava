@@ -36,7 +36,7 @@ public class EmpHomePage extends HttpServlet {
 		
 		request.setAttribute("employee", employee);
 		RequestDispatcher rd = request.getRequestDispatcher("DisplayEmployee.jsp");
-		rd.include(request, response);
+		rd.forward(request, response);
 	
 	}
 

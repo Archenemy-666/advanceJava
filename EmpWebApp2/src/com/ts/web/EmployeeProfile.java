@@ -36,11 +36,14 @@ public class EmployeeProfile extends HttpServlet {
 		if(employee != null) {
 			request.setAttribute("employee", employee);
 			RequestDispatcher rd = request.getRequestDispatcher("EmployeeProfile.jsp");
+			rd.include(request, response);	
+		
+	}
+		else {
+			RequestDispatcher rd = request.getRequestDispatcher("EmpHomePage");
 			rd.include(request, response);
 			
-			//RequestDispatcher rd2 = request.getRequestDispatcher("EmpHomePage");
-			//rd2.include(request, response);
-	}
+		}
  }
 
 

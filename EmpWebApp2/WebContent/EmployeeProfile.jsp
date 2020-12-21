@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" "com.ts.dto.Employee"%>
+    pageEncoding="ISO-8859-1"import =  "com.ts.dto.Employee" %>
 <!DOCTYPE html>
 <html>
 <head>
