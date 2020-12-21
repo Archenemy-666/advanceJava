@@ -1,0 +1,15 @@
+body{
+    background-color: #242424;
+    color : white
+}
+.effect1{
+    color: red;
+    text-align: center;
+}
+.effect2{
+    color: plum;
+    text-align: center;
+}
+#effect3{
+    font-size: 25px;
+}
